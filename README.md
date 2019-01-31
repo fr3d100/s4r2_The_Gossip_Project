@@ -1,4 +1,5 @@
 # Bienvenue sur mon super The_Gossip_Project
+------
  
 Voici quelques commandes qui te permettront de tester le modèle de données :
 
@@ -31,5 +32,5 @@ tp User.find(PrivateMessage.order("RANDOM()").first.sender_id).sent_messages
 ```
 tp PrivateMessage.order("RANDOM()").first.users
 ```
-===== 
+------
 Fait avec :hearts: par @Fred
