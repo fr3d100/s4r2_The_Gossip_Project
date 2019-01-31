@@ -12,6 +12,9 @@ require 'faker'
 #On vide les donées en base 
 User.destroy_all
 City.destroy_all
+Gossip.destroy_all
+Tag.destroy_all
+JoinTableGossipTag.destroy_all
 
 #Création de 10 villes
 10.times do
@@ -29,4 +32,21 @@ puts "10 utilisateurs ont été créés"
 20.times do
 	Gossip.create(title: Faker::Hipster.word , content: Faker::ChuckNorris.fact , user: User.order("RANDOM()").first)
 end
-puts "20 gossip ont été créés"
+puts "20 gossips ont été créés"
+
+# Création de 10 tags
+10.times do
+	Tag.create(title: Faker::Hipster.word)
+end
+puts "10 tags ont été créés"
+
+
+# Association de tous les gossips à 2 tags
+Gossip.all.each do |gossip|
+	2.times do
+		JoinTableGossipTag.create(gossip: gossip, tag: Tag.order("RANDOM()").first)
+	end
+end
+puts "2 tags ont été affectés à chaque Gossip"
+
+
