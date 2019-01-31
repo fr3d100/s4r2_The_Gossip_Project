@@ -62,7 +62,8 @@ puts "10 messages ont été envoyés par des utilisateurs"
 #On rajoute 2 destinataire à chaque message envoyé
 PrivateMessage.all.each do |pm|
 	2.times do 
-		JoinTablePmRecipient.create(private_message: pm, user: User.order("RANDOM()").first)
+		u = User.order("RANDOM()").first
+		JoinTablePmRecipient.create(private_message: pm, user: u)
 	end
 end
 puts "2 destinataires ont été rajoutés à chaque message envoyé"
