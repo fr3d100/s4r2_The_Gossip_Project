@@ -49,4 +49,13 @@ Gossip.all.each do |gossip|
 end
 puts "2 tags ont été affectés à chaque Gossip"
 
+# On créé des messages envoyés par des users
+10.times do
+	u = User.order("RANDOM()").first
+	PrivateMessage.create(content: "Message privé envoyé par #{u.first_name}", sender: u)
+end 
+puts "10 messages ont été envoyés par des utilisateurs"
+
+
+
 
