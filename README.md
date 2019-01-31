@@ -30,7 +30,7 @@ tp Tag.order("RANDOM()").first.gossips
 tp User.find(PrivateMessage.order("RANDOM()").first.sender_id).sent_messages
 ```
 
-### Avoir tous les destinataire de d'un message envoyé au hasard
+### Avoir tous les destinataires de d'un message envoyé au hasard
 ```
 tp PrivateMessage.order("RANDOM()").first.users
 ```
