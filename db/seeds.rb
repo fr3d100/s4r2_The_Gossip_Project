@@ -15,6 +15,9 @@ City.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
 JoinTableGossipTag.destroy_all
+PrivateMessage.destroy_all
+JoinTablePmRecipient.destroy_all
+
 
 #Création de 10 villes
 10.times do
@@ -56,6 +59,13 @@ puts "2 tags ont été affectés à chaque Gossip"
 end 
 puts "10 messages ont été envoyés par des utilisateurs"
 
+#On rajoute 2 destinataire à chaque message envoyé
+PrivateMessage.all.each do |pm|
+	2.times do 
+		JoinTablePmRecipient.create(private_message: pm, user: User.order("RANDOM()").first)
+	end
+end
+puts "2 destinataires ont été rajoutés à chaque message envoyé"
 
 
 
